@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-// TODO: Please make sure you edit the User model to whatever makes sense in this case
+
 const userSchema = new Schema(
   {
     email: {
@@ -14,20 +14,20 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Password is required.']
     },
-    creditCard: {
-      number: {
-        type: String,
-        trim: true,
-        defaul: "1234-5678-9123-4567"
-        },
-      name: {
-        type: String,
-        trim: true,
-      },
-      cvCode: {
-        type: Number,
-        
-      }
+    username: {
+      type: String,
+      trim: true,
+      required: [true, 'Username is required.'],
+      unique: true,
+    },
+    role: {
+      type: String,
+      enum: ["admin", "user"],
+      default: "user",
+    }, 
+    cart: {
+      type: Schema.Types.ObjectId,
+      ref: "Article",
     }
   },
   {
