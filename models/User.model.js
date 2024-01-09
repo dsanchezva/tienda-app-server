@@ -28,6 +28,32 @@ const userSchema = new Schema(
     cart: {
       type: Schema.Types.ObjectId,
       ref: "Article",
+    },
+    adress: {
+      name: {
+        type: String,
+      },
+      surname: {
+        type: String,
+      },
+      street: {
+        type: String,
+        trim: true,
+      }, 
+      city: {
+        type: String,
+      },
+      region: {
+        type: String, 
+        enum: ["Andalucía", "Aragón", "Canarias", "Cantabria", "Castilla y León", "Castilla-La Mancha", "Cataluña", "Ceuta", "Comunidad Valenciana", "Comunidad de Madrid", "Extremadura", "Galicia", "Islas Baleares", "La Rioja", "Melilla", "Navarra", "País Vasco", "Principado de Asturias", "Región de Murcia"]
+      },
+      zipCode: {
+        type: Number,
+      },
+      country: {
+        type: String,
+        default: "España",
+      }
     }
   },
   {
