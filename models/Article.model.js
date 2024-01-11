@@ -24,6 +24,10 @@ const articleSchema = new Schema({
         type:[String],
         default: ["https://res.cloudinary.com/dqdhb1efh/image/upload/v1704718316/no-fotos_mihqdq.png"],
         
+    },
+    category: {
+        type: [String],
+        default: "No category",
     }
 
 }, {
